@@ -16,7 +16,7 @@ X, y, Xte = load(args.data, 1)
 pipe = make_pipeline(
     PolynomialFeatures(5, include_bias=False),
     StandardScaler(),
-    LassoCV(cv=KFold(10, shuffle=True, random_state=0), n_alphas=60, eps=1e-4,
+    LassoCV(cv=KFold(10, shuffle=True, random_state=0), alphas=60, eps=1e-4,
             max_iter=50000, tol=1e-4, n_jobs=-1),
 ).fit(X, y)
 lasso = pipe[-1]
